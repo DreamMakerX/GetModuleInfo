@@ -18,9 +18,15 @@
     <ClCompile Include="Demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GetModuleInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GetModuleInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
