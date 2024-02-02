@@ -54,7 +54,7 @@ namespace ModuleInfo {
 	 * @brief 获取模块名称
 	 *
 	 * @param 模块不完整的名称
-	 * @return模块名称
+	 * @return 模块名称
 	 */
 	std::string GetModuleName(const std::string& target);
 	
