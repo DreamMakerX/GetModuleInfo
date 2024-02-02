@@ -39,7 +39,7 @@ namespace ModuleInfo {
 	 * @param fileName 文件名称
 	 * @return 修改时间
 	 */
-	std::string GetModuleLastWriteTime(const std::string& fileName);
+	std::string GetModuleModifyTime(const std::string& fileName);
 
 	/*
 	 * @brief 获取模块信息
@@ -48,7 +48,7 @@ namespace ModuleInfo {
 	 * @param infoType 信息类型，参考ModuleInfoType，默认只输出模块名称
 	 * @return 模块信息
 	 */
-	std::string GetModuleInfo(const std::string& moduleName, size_t infoType = MIT_EMPTY);
+	std::string GetModuleInfo(const std::string& moduleName, const size_t& infoType = MIT_EMPTY);
 	
 	/*
 	 * @brief 获取模块名称
@@ -71,7 +71,7 @@ namespace ModuleInfo {
 	 * @param infoType 信息类型，参考ModuleInfoType，默认只输出模块名称
 	 * @return 当前进程所有模块信息
 	 */
-	std::unordered_set<std::string> GetModuleInfo(size_t infoType = MIT_EMPTY);
+	std::unordered_set<std::string> GetModuleInfo(const size_t& infoType = MIT_EMPTY);
 	
 	/*
 	 * @brief 判断信息类型是否符合要求
@@ -80,5 +80,5 @@ namespace ModuleInfo {
 	 * @param standard 判断依据
 	 * @return 是否符合要求
 	 */
-	bool CheckInfoType(size_t infoType, size_t standard);
+	bool CheckInfoType(const size_t& infoType, const size_t& standard);
 }

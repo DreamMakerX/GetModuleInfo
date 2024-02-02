@@ -46,7 +46,7 @@ namespace ModuleInfo {
 
         return "";
     }
-    std::string GetModuleLastWriteTime(const std::string& fileName) {
+    std::string GetModuleModifyTime(const std::string& fileName) {
         HMODULE hModule = GetModuleHandleA(fileName.c_str());
         if (hModule == NULL) {
             return "Module handle not found.";
@@ -82,7 +82,7 @@ namespace ModuleInfo {
 
         return std::string(buffer);
     }
-    std::string GetModuleInfo(const std::string& moduleName, size_t infoType)
+    std::string GetModuleInfo(const std::string& moduleName, const size_t& infoType)
     {
         std::string result = moduleName;
         if (moduleName.empty() || CheckInfoType(infoType, MIT_EMPTY))
@@ -101,7 +101,7 @@ namespace ModuleInfo {
         //获取修改时间
         if (CheckInfoType(infoType, MIT_MODIFY))
         {
-            std::string modifyTime = GetModuleLastWriteTime(moduleName);
+            std::string modifyTime = GetModuleModifyTime(moduleName);
             if (!modifyTime.empty())
             {
                 result += " | Modified At " + modifyTime; //修改时间
@@ -173,7 +173,7 @@ namespace ModuleInfo {
 
         return moduleNames;
     }
-    std::unordered_set<std::string> GetModuleInfo(size_t infoType)
+    std::unordered_set<std::string> GetModuleInfo(const size_t& infoType)
     {
         std::unordered_set<std::string> result;
 
@@ -190,7 +190,7 @@ namespace ModuleInfo {
 
         return result;
     }
-    bool CheckInfoType(size_t infoType, size_t standard)
+    bool CheckInfoType(const size_t& infoType, const size_t& standard)
     {
         if (standard == MIT_EMPTY)
         {
