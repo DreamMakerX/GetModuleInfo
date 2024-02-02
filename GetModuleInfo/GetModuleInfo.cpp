@@ -4,23 +4,10 @@
 #include <cmath>
 
 #pragma comment(lib, "Version.lib")
+
 namespace ModuleInfo {
     std::string GetFileSingleInfo(const std::string& fileName, const std::string& attrName)
     {
-        /*fileName可选值：
-        Comments: 文件的附加信息或注释。
-        CompanyName: 开发公司的名称。
-        FileDescription: 文件的描述。
-        FileVersion: 文件版本号。
-        InternalName: 内部名称，通常是开发时使用的名称。
-        LegalCopyright: 版权信息。
-        LegalTrademarks: 商标信息。
-        OriginalFilename: 文件的原始名称。
-        ProductName: 产品的名称。
-        ProductVersion: 产品的版本号。
-        PrivateBuild: 标识这个文件是一个私有版本。
-        SpecialBuild: 对于特殊构建的说明。
-        */
         // 获取文件版本信息大小
         DWORD dwHandle;
         DWORD dwSize = GetFileVersionInfoSizeA(fileName.c_str(), &dwHandle);
@@ -59,8 +46,8 @@ namespace ModuleInfo {
 
         return "";
     }
-    std::string GetModuleLastWriteTime(const std::string& moduleName) {
-        HMODULE hModule = GetModuleHandleA(moduleName.c_str());
+    std::string GetModuleLastWriteTime(const std::string& fileName) {
+        HMODULE hModule = GetModuleHandleA(fileName.c_str());
         if (hModule == NULL) {
             return "Module handle not found.";
         }
